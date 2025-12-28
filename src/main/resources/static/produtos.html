@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>CaféFlow • Produtos</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <div class="nav">
+    <div class="container">
+      <div class="row">
+        <div class="brand">
+          <div class="logo">☕</div>
+          <div><div>CaféFlow</div><div class="badge">Produtos</div></div>
+        </div>
+        <div class="links">
+          <a class="link" href="index.html">Dashboard</a>
+          <a class="link" href="produtos.html">Produtos</a>
+          <a class="link" href="pedido.html">Pedidos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="hd">
+          <h1 class="h1">Produtos</h1>
+          <p class="p">Cadastro/edição com validações em JavaScript.</p>
+        </div>
+        <div class="bd">
+          <div id="msgBox" hidden></div>
+
+          <form class="form" id="formProduto" novalidate>
+            <input type="hidden" id="editId" value=""/>
+
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input id="nome" placeholder="Ex.: Café coado"/>
+              <div class="help">Obrigatório.</div>
+            </div>
+
+            <div class="grid cols-2">
+              <div class="field">
+                <label for="preco">Preço (R$)</label>
+                <input id="preco" type="number" step="0.01" min="0.01" placeholder="6.50"/>
+                <div class="help">Maior que 0.</div>
+              </div>
+              <div class="field">
+                <label for="estoque">Estoque</label>
+                <input id="estoque" type="number" step="1" min="0" placeholder="10"/>
+                <div class="help">Inteiro ≥ 0.</div>
+              </div>
+            </div>
+
+            <div class="btnrow">
+              <button class="btn primary" id="btnSubmit" type="submit">Cadastrar</button>
+              <button class="btn" type="button" id="btnReset">Limpar</button>
+              <button class="btn" type="button" id="btnSeed">Recarregar exemplo</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="hd">
+          <h2 class="h2">Lista de produtos</h2>
+          <p class="p">Editar/Excluir na tabela.</p>
+        </div>
+        <div class="bd" style="overflow:auto">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Produto</th>
+                <th>Estoque</th>
+                <th class="right">Preço</th>
+                <th class="right">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyProdutos"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/produtos.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>CaféFlow • Dashboard</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <div class="nav">
+    <div class="container">
+      <div class="row">
+        <div class="brand">
+          <div class="logo">☕</div>
+          <div>
+            <div>CaféFlow</div>
+            <div class="badge">PI • Etapa 8 • Front-end</div>
+          </div>
+        </div>
+        <div class="links">
+          <a class="link" href="index.html">Dashboard</a>
+          <a class="link" href="produtos.html">Produtos</a>
+          <a class="link" href="pedido.html">Pedidos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div class="hd">
+        <h1 class="h1">Dashboard</h1>
+        <p class="p">Sistema web (front-end) sem back-end. Dados simulados via <span class="mono">localStorage</span>.</p>
+      </div>
+      <div class="bd">
+        <div class="grid cols-3">
+          <div class="card" style="background:var(--card2)"><div class="bd">
+            <div class="kpi"><div class="num" id="kpiProdutos">—</div><div class="lbl">produtos</div></div>
+            <div class="small">Total cadastrados.</div>
+          </div></div>
+
+          <div class="card" style="background:var(--card2)"><div class="bd">
+            <div class="kpi"><div class="num" id="kpiPedidos">—</div><div class="lbl">pedidos</div></div>
+            <div class="small">Total confirmados.</div>
+          </div></div>
+
+          <div class="card" style="background:var(--card2)"><div class="bd">
+            <div class="kpi"><div class="num" id="kpiEstoque">—</div><div class="lbl">itens em estoque</div></div>
+            <div class="small">Soma de estoques.</div>
+          </div></div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="grid cols-2">
+          <div class="card" style="background:var(--card2)"><div class="bd">
+            <h2 class="h2">O que foi implementado</h2>
+            <ul class="p" style="margin-top:10px">
+              <li>Wireframes (pasta <span class="mono">wireframes/</span>)</li>
+              <li>Páginas HTML correspondentes</li>
+              <li>CSS separado em <span class="mono">assets/css/styles.css</span></li>
+              <li>JS separado com validações e dinâmica</li>
+            </ul>
+          </div></div>
+
+          <div class="card" style="background:var(--card2)"><div class="bd">
+            <h2 class="h2">Atalhos</h2>
+            <div class="btnrow" style="margin-top:10px">
+              <a class="btn primary" href="produtos.html">Gerenciar Produtos</a>
+              <a class="btn" href="pedido.html">Criar Pedido</a>
+            </div>
+            <p class="help" style="margin-top:10px">Dica: em Produtos e Pedidos tem botão “Recarregar exemplo”.</p>
+          </div></div>
+        </div>
+
+        <div class="footer">CaféFlow • PI Etapa 8 • HTML/CSS/JS sem back-end.</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", ()=>{
+      const k = kpi();
+      byId("kpiProdutos").textContent = k.products;
+      byId("kpiPedidos").textContent = k.orders;
+      byId("kpiEstoque").textContent = k.totalStock;
+    });
+  </script>
+</body>
+</html>

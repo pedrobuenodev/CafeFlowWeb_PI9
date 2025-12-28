@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>CaféFlow • Pedidos</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <div class="nav">
+    <div class="container">
+      <div class="row">
+        <div class="brand">
+          <div class="logo">☕</div>
+          <div><div>CaféFlow</div><div class="badge">Pedidos</div></div>
+        </div>
+        <div class="links">
+          <a class="link" href="index.html">Dashboard</a>
+          <a class="link" href="produtos.html">Produtos</a>
+          <a class="link" href="pedido.html">Pedidos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="hd">
+          <h1 class="h1">Pedidos</h1>
+          <p class="p">Carrinho + validações de quantidade e estoque (simulado).</p>
+        </div>
+        <div class="bd">
+          <div id="msgBox" hidden></div>
+
+          <div class="card" style="background:var(--card2); margin-bottom:12px">
+            <div class="bd">
+              <div class="kpi"><div class="num" id="kpiPedidos">—</div><div class="lbl">pedidos confirmados</div></div>
+              <div class="small">Salvos no localStorage.</div>
+            </div>
+          </div>
+
+          <div class="form">
+            <div class="field">
+              <label for="produto">Produto</label>
+              <select id="produto"></select>
+              <div class="help">A lista vem dos produtos cadastrados.</div>
+            </div>
+
+            <div class="grid cols-2">
+              <div class="field">
+                <label for="quantidade">Quantidade</label>
+                <input id="quantidade" type="number" step="1" min="1" value="1"/>
+                <div class="help">Inteiro > 0.</div>
+              </div>
+              <div class="field">
+                <label>&nbsp;</label>
+                <button class="btn primary" type="button" id="addItem">Adicionar</button>
+              </div>
+            </div>
+
+            <div class="btnrow">
+              <button class="btn" type="button" id="limparCarrinho">Limpar carrinho</button>
+              <button class="btn primary" type="button" id="confirmarPedido">Confirmar pedido</button>
+              <button class="btn" type="button" id="btnSeed2">Recarregar exemplo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="hd">
+          <h2 class="h2">Carrinho</h2>
+          <p class="p">Subtotal por item e total geral calculados dinamicamente.</p>
+        </div>
+        <div class="bd" style="overflow:auto">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th class="right">Preço</th>
+                <th class="right">Qtd</th>
+                <th class="right">Subtotal</th>
+                <th class="right">Ação</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyCarrinho"></tbody>
+          </table>
+
+          <div class="hr"></div>
+          <div class="kpi" style="justify-content:flex-end">
+            <div class="lbl">Total:</div>
+            <div class="num" id="totalCarrinho">R$ 0,00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pedido.js"></script>
+</body>
+</html>
